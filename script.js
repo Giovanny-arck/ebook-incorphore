@@ -47,7 +47,7 @@ if (heroForm) {
 
         // NOVO: Defina os URLs dos seus webhooks aqui
         const webhookUrls = [
-            'https://n8neditor.arck1pro.shop/webhook-test/ebook', // Webhook 1 (o original)
+            'https://n8nwebhook.arck1pro.shop/webhook/ebook-rdmkt', // Webhook 1 (o original)
             'https://n8nwebhook.arck1pro.shop/webhook/ebook-rdcrm'   // Webhook 2 (o novo)
         ];
 
