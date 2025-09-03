@@ -1,22 +1,4 @@
-// script.js
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    // --- LÓGICA DO FORMULÁRIO ---
-    const heroForm = document.getElementById('hero-form');
-    const phoneInput = document.getElementById('phone');
-    const formMessage = document.getElementById('form-message');
-
-    if (phoneInput) {
-        phoneInput.addEventListener('input', (e) => {
-            let value = e.target.value.replace(/\D/g, ''); 
-            if (value.startsWith('55')) value = value.substring(2);
-            if (value.length > 11) value = value.slice(0, 11);
-            e.target.value = value;
-        });
-    }
-
-    // Substitua a função de formulário inteira no seu script.js por esta versão atualizada
+// Substitua a função de formulário inteira no seu script.js por esta versão atualizada
 
 if (heroForm) {
     heroForm.addEventListener('submit', async (e) => {
@@ -45,10 +27,10 @@ if (heroForm) {
 
         // --- LÓGICA DE ENVIO PARA MÚLTIPLOS WEBHOOKS ---
 
-        // NOVO: Defina os URLs dos seus webhooks aqui
+        // ATUALIZADO: Defina os URLs dos seus dois webhooks aqui
         const webhookUrls = [
-            'https://n8nwebhook.arck1pro.shop/webhook/ebook-rdmkt', // Webhook 1 (o original)
-            'https://n8nwebhook.arck1pro.shop/webhook/ebook-rdcrm'   // Webhook 2 (o novo)
+            'https://n8nwebhook.arck1pro.shop/webhook/ebook-rdmkt', // Webhook 1 (RD Marketing)
+            'https://n8nwebhook.arck1pro.shop/webhook/ebook-rdcrm'   // Webhook 2 (RD CRM)
         ];
 
         try {
@@ -61,7 +43,7 @@ if (heroForm) {
                 })
             );
 
-            // NOVO: Envia para todos os webhooks simultaneamente e espera a conclusão de todos
+            // Envia para todos os webhooks simultaneamente e espera a conclusão de todos
             const results = await Promise.allSettled(requests);
 
             // Verifica se pelo menos um dos envios foi bem-sucedido
@@ -97,12 +79,3 @@ if (heroForm) {
         }
     });
 }
-
-    // --- LÓGICA DE ROLAGEM DOS BOTÕES ---
-    const scrollButtons = document.querySelectorAll('.btn-cta');
-    scrollButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-});
